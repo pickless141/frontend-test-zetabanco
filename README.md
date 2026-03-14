@@ -1,36 +1,162 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Zeta Banco - Simulador de Transferencias Internas
 
-## Getting Started
+Aplicación frontend desarrollada como prueba técnica para simular transferencias entre cuentas bancarias internas, con validaciones contextuales, historial diario, dashboard resumido y visualización en tiempo real del mercado de criptomonedas.
 
-First, run the development server:
+## Descripción
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Este proyecto implementa un módulo de simulación de transacciones entre cuentas de una misma entidad financiera, permitiendo validar operaciones en tiempo real y visualizar métricas clave del día.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+La solución fue desarrollada con enfoque en experiencia de usuario, organización del código, escalabilidad y responsividad.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Tecnologías utilizadas
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Next.js
+- React
+- TypeScript
+- Tailwind CSS
+- Zustand
+- react-i18next / i18next
+- Recharts
+- next-themes
+- Sonner
+- Lucide React
 
-## Learn More
+## Funcionalidades implementadas
 
-To learn more about Next.js, take a look at the following resources:
+### Simulación de transferencias
+- Selección de cuenta origen y destino
+- Visualización de nombre y foto del titular seleccionado
+- Ingreso de monto a transferir
+- Validación de saldo disponible
+- Validación para impedir transferencias a la misma cuenta
+- Confirmación local de transferencia exitosa
+- Actualización local de saldos
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Historial del día
+- Listado de transferencias simuladas
+- Filtro por cuenta origen
+- Filtro por cuenta destino
+- Filtro por monto mínimo
+- Total transferido según filtros aplicados
+- Paginación configurable
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Dashboard resumido
+- Total de transacciones del día
+- Total de dinero transferido
+- Cuenta con más transacciones
+- Gráfica de transferencias por cuenta origen
+- Vista en tiempo real del mercado crypto mediante WebSocket
 
-## Deploy on Vercel
+### Extras implementados
+- Internacionalización (español / inglés)
+- Modo oscuro
+- Notificaciones tipo toast
+- Diseño responsive
+- Persistencia de transferencias, cuentas e idioma usando LocalStorage
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Fuente de datos mock
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Cuentas precargadas desde archivo JSON local
+- Transferencias almacenadas en Zustand y persistidas en LocalStorage
+- Fotos de usuarios obtenidas desde Random User
+- Mercado crypto en tiempo real usando Finnhub WebSocket
+
+## Requisitos previos
+
+Antes de ejecutar el proyecto, asegurate de tener instalado:
+
+- Node.js 18 o superior
+- npm 9 o superior
+
+Podés verificarlo con:
+
+node -v
+npm -v
+
+## 1 clonar el proyecto 
+
+- git clone 
+- cd frontend-zetabanco
+
+# 2 instalar dependencias 
+
+- npm install 
+
+## 3 Configurar variables de entorno
+- Crear en un archivo .env.local en la raiz del proyecto con el siguiente contenido:
+NEXT_PUBLIC_FINNHUB_API_KEY=tu_api_key_de_finnhub
+
+Nota: esta variable es necesaria para habilitar la vista en tiempo real del mercado crypto mediante de WebSocket
+
+## 4 Ejecutar en modo desarrollo 
+
+- npm run dev
+
+La aplicacion quedara disponible en: 
+http://localhost:3000
+
+## Scripts disponibles
+
+- Desarrollo -> npm run dev
+
+- Build de produccion -> npm run build 
+
+- Ejecutar build de produccion -> npm run start
+
+- Lint -> npm run lint 
+
+## Estructura del proyecto 
+
+app/
+  (panel)/
+    layout.tsx
+    page.tsx
+    transferencias/
+      page.tsx
+    historial/
+      page.tsx
+  components/
+    common/
+    crypto/
+    dashboard/
+    history/
+    layout/
+    providers/
+    transfer/
+  features/
+    market/
+    transactions/
+  i18n/
+    locales/
+      es/
+      en/
+  mocks/
+  store/
+  types/
+  utils/
+
+## Consideraciones funcionales
+
+- Todas las transferencias son simuladas localmente 
+- No existe integracion con un backend real 
+- Los saldos se actualizan localmente al confirmar una operacion
+- Las transferencias y saldos simulados persisten mientras exista LocalStorage en el navegador
+- Si no se configura la API Key de Finnhub, la aplicacion seguira funcionando, pero la seccion de mercado crypto mostrara un mensaje informativo 
+
+## Desiciones tecnicas
+
+- Next.js + App Router: utilizado para organizar la aplicacion por secciones y layouts compartidos
+- TypeScript: para mejorar mantenibilidad, legibilidad y seguridad en el tipado
+- Zustand: elegido para el manejo global de estado por su simplicidad y bajo nivel de boilerplate
+- LocalStorage: utilizado para persistir cuentas, transferencias e idioma seleccionado
+- Mock local en json: suficiente para el alcance solicitado, evitando dependencia de un backend real
+- react-i18next: implementado para soportar internalizacion en español e ingles
+- Finnhub WebSocket: utilizado para cumplir con la vista en tiempo real del mercado crypto
+- Recharts: incorporado para representar visualmente el resumen de transferencias
+- next-themes: implementado para soporte de modo oscuro 
+
+
+## Autor
+Ivan Masi
+
+

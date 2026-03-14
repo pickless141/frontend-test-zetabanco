@@ -1,0 +1,42 @@
+[
+  {
+    "id": "1",
+    "numeroCuenta": "001-123456/7",
+    "tipo": "Caja de ahorro",
+    "banco": "Zeta Banco",
+    "nombreTitular": "Juan Pérez",
+    "saldo": 8500000,
+    "moneda": "PYG",
+    "foto": "https://randomuser.me/api/portraits/men/32.jpg"
+  },
+  {
+    "id": "2",
+    "numeroCuenta": "001-458921/3",
+    "tipo": "Cuenta corriente",
+    "banco": "Zeta Banco",
+    "nombreTitular": "María González",
+    "saldo": 12500000,
+    "moneda": "PYG",
+    "foto": "https://randomuser.me/api/portraits/women/44.jpg"
+  },
+  {
+    "id": "3",
+    "numeroCuenta": "001-778245/9",
+    "tipo": "Cuenta sueldo",
+    "banco": "Zeta Banco",
+    "nombreTitular": "Carlos Ramírez",
+    "saldo": 4200000,
+    "moneda": "PYG",
+    "foto": "https://randomuser.me/api/portraits/men/68.jpg"
+  },
+  {
+    "id": "4",
+    "numeroCuenta": "001-902341/5",
+    "tipo": "Caja de ahorro",
+    "banco": "Zeta Banco",
+    "nombreTitular": "Lucía Fernández",
+    "saldo": 16300000,
+    "moneda": "PYG",
+    "foto": "https://randomuser.me/api/portraits/women/21.jpg"
+  }
+]
