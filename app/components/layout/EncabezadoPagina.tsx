@@ -1,11 +1,16 @@
 "use client";
 
 import Image from "next/image";
+import dynamic from "next/dynamic";
 import { usePathname } from "next/navigation";
 import { useTranslation } from "react-i18next";
 import ToggleIdioma from "@/app/components/layout/ToggleIdioma";
-import ToggleTema from "@/app/components/layout/ToggleTema";
 import { obtenerInformacionSeccion } from "@/app/helpers/encabezado.helpers";
+
+const ToggleTema = dynamic(
+  () => import("@/app/components/layout/ToggleTema"),
+  { ssr: false }
+);
 
 export default function EncabezadoPagina() {
   const { t } = useTranslation();
