@@ -75,7 +75,7 @@ npm -v
 
 ## 1 clonar el proyecto 
 
-- git clone 
+- git clone https://github.com/pickless141/frontend-test-zetabanco.git
 - cd frontend-zetabanco
 
 # 2 instalar dependencias 
@@ -104,36 +104,6 @@ http://localhost:3000
 - Ejecutar build de produccion -> npm run start
 
 - Lint -> npm run lint 
-
-## Estructura del proyecto 
-
-app/
-  (panel)/
-    layout.tsx
-    page.tsx
-    transferencias/
-      page.tsx
-    historial/
-      page.tsx
-  components/
-    common/
-    crypto/
-    dashboard/
-    history/
-    layout/
-    providers/
-    transfer/
-  features/
-    market/
-    transactions/
-  i18n/
-    locales/
-      es/
-      en/
-  mocks/
-  store/
-  types/
-  utils/
 
 ## Consideraciones funcionales
 
